@@ -1,0 +1,108 @@
+
+    /*valid*/
+#user_name:valid{
+    border: 1px solid green;
+    background: #d4edda;
+}
+
+#user_last_name:valid{
+    border: 1px solid green;
+    background: #d4edda;
+}
+
+#user_email:valid{
+    border: 1px solid green;
+    background: #d4edda;
+}
+
+#password:valid{
+    border: 1px solid green;
+    background: #d4edda;
+}
+
+#repeat_password:valid{
+    border: 1px solid green;
+    background: #d4edda;
+}
+
+
+
+
+    /*Label Input*/
+label{
+    width: 155px;
+    /*display: inline-block;*/
+    vertical-align: top;
+    margin: 6px;
+}
+
+input{
+    height: 30px;
+    border:  1px solid #0f6674;
+}
+  /*__________________________*/
+
+
+        /*Form*/
+#form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+
+    transform: translate(-50%, -50%) ;
+
+    align-content: center;
+    padding: 20px 6% 60px 6%;
+
+    background: rgb(247, 247, 247);
+    border: 1px solid rgba(147, 184, 189,0.8);
+    box-sizing: border-box;
+    box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#btn_submit{
+    height: 40px;
+    position: absolute;
+    left: 40%;
+    margin-right: -50%;
+
+    border-radius: 5px;
+
+}
+
+/*________________*/
+
+/*    Form messages*/
+
+.form_messages{
+    position: absolute;
+    top: 10%;
+    left: 37%;
+    margin-right: -50%;
+
+    color: red;
+}
+.form_ok_message{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    margin-right: -50%;
+
+    transform: translate(-50%, -50%) ;
+
+    align-content: center;
+
+    color: green;
+}
+
+/*____________________*/
+
+
+
+
+
+
+

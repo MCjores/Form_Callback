@@ -1,0 +1,88 @@
+<html
+        xml:lang="en" lang="en">
+<head>
+
+
+    <meta charset="utf-8">
+    <!-- Настройка viewport -->
+    <!-- Подключаем Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myCSS.css">
+
+
+    <!-- Подключаем jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>Sign UP</title>
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function () {
+                event.preventDefault();
+                $.ajax({
+                    url: 'action.php',
+                    type: "post",
+                    dataType: "json",
+                    data: $("#form").serialize(),
+
+                    success: function (data) {
+                        if (data.isResult === 1) {
+                            $('#form').remove();
+                            $('.form_messages').remove();
+                            $('.form_ok_message').html(data.result); // выводим положительный ответ сервера
+                        } else {
+                            $('.form_messages').html(data.result); // выводим ошибки
+                        }
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+
+<br/>
+<div class="form_messages" id="message"></div>
+<div class="form_ok_message" id="ok_message"></div>
+
+<form id="form" class="form-sing_up" method="post">
+    <p>
+        <label for="user_name" class="uname">Имя</label>
+        <input id="user_name" name="name" required="required" placeholder="Иван" minlength="2" maxlength="20"
+               pattern="^[А-Яа-яЁё\s]+$"
+               title="Подсказка: Имя должно состоять из букв русского алфавита и содержать минимум 2 символа"/>
+    </p>
+
+    <p>
+        <label for="user_last_name"> Фамилия</label>
+        <input id="user_last_name" name="last_name" required="required" placeholder="Иванов" minlength="2"
+               maxlength="20"
+               pattern="^[А-Яа-яЁё\s]+$"
+               title="Подсказка: Фамилия должна состоять из букв русского алфавита и содержать минимум 2 символа"/>
+    </p>
+
+    <p>
+        <label for="user_email" data-icon="e"> Ваш e-mail</label>
+        <input id="user_email" name="e-mail" required="required" type="email" placeholder="ivan@my.com" minlength="8"/>
+    </p>
+
+    <p>
+        <label for="password" data-icon="p">Ваш пароль </label>
+        <input id="password" name="password" required="required" type="password" placeholder="********" maxlength="15"
+               minlength="8"/>
+    </p>
+
+    <p>
+        <label for="repeat_password" data-icon="p">Повторите пароль </label>
+        <input id="repeat_password" name="repeat_password" required="required" type="password" placeholder="********"
+               minlength="8" maxlength="15"/>
+    </p>
+
+    <p>
+        <input type="submit" value="Отправить" id="btn_submit"/>
+    </p>
+</form>
+
+</body>
+</html>
